@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { TypeORMModule } from './infrastructure/config/typeorm/typeorm.module';
 import { ResponseServiceProvider } from './infrastructure/adapters/providers/response-service.provider'; 
+import { AccountModule } from '../account/account.module';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { ResponseServiceProvider } from './infrastructure/adapters/providers/res
       }),
     }),
     TypeORMModule,
-    // Aquí importarás tus módulos de dominio cuando los crees
+    AccountModule,
   ],
   providers: [ResponseServiceProvider],
 })

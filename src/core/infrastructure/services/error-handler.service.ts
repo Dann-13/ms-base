@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Logger } from '@nestjs/common';
 
 export class ErrorHandlerService {
-  private static readonly logger = new Logger(ErrorHandlerService.name);
+  private readonly logger = new Logger(ErrorHandlerService.name);
 
-  static handle(error: any): never {
+  handle(error: any): never {
     this.logger.error(`Error: ${error.message}`);
     
     if (error instanceof HttpException) {
